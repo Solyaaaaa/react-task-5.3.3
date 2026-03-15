@@ -1,8 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { VacancyCard } from '../components/VacancyCard/VacancyCard';
 import { useEffect, useState } from 'react';
-import { HeaderVacancy } from '../components/HeaderVacancy/HeaderVacancy';
-import { AppShell, Container, Paper } from '@mantine/core';
+import { Container, Paper } from '@mantine/core';
 import type { Vacancy } from '../types/vacancy';
 
 const VacancyPage = () => {
@@ -33,9 +32,7 @@ const VacancyPage = () => {
   }, [id]);
 
   return (
-    <AppShell header={{ height: 60 }}>
-      <HeaderVacancy />
-      <AppShell.Main bg={'#f6f6f7'} pt={60}>
+
         <Container size={'sm'} p={24}>
           {dataVacancy && (
             <VacancyCard vacancy={dataVacancy} isDetailPage={true} />
@@ -57,8 +54,7 @@ const VacancyPage = () => {
             />
           </Paper>
         </Container>
-      </AppShell.Main>
-    </AppShell>
+
   );
 };
 

@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   base: '/react-task-5.3.3/',
-
   plugins: [react()],
   test: {
     globals: true,

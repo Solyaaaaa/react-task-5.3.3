@@ -1,5 +1,4 @@
 import {
-  Anchor,
   AppShell,
   Container,
   Grid,
@@ -10,6 +9,7 @@ import {
 } from '@mantine/core';
 import logo from '../../assets/image.svg';
 import { IconUserCircle } from '@tabler/icons-react';
+import { NavLink } from 'react-router-dom';
 
 export const HeaderVacancy = () => {
   return (
@@ -26,10 +26,22 @@ export const HeaderVacancy = () => {
           <Grid.Col span={{ base: 6, sm: 4 }}>
             <Group justify="center" gap="xl" wrap="nowrap" align="center">
               <Group gap={8} wrap="nowrap" align="center">
-                <Anchor c={'rgba(0, 0, 0, 1)'} underline="never">
-                  Вакансии FE
-                </Anchor>
-                <Indicator position="middle-center" size={6} />
+                <NavLink
+                  to="/vacancies"
+                  style={({ isActive }) => ({
+                    color: isActive ? 'rgba(0,0,0,1)' : 'rgba(15,15,16,0.5)',
+                    textDecoration: 'none',
+                  })}
+                >
+                  {({ isActive }) => (
+                    <Group gap={8} wrap="nowrap" align="center">
+                      Вакансии FE
+                      {isActive && (
+                        <Indicator position="middle-center" size={6} />
+                      )}
+                    </Group>
+                  )}
+                </NavLink>
               </Group>
               <Group gap={4} wrap="nowrap" align="center">
                 <IconUserCircle
@@ -37,9 +49,22 @@ export const HeaderVacancy = () => {
                   color="rgba(15, 15, 16, 0.5)"
                   stroke={1.2}
                 />
-                <Anchor c={'rgba(15, 15, 16, 0.5)'} underline="never">
-                  Обо мне
-                </Anchor>
+                <NavLink
+                  to="/about"
+                  style={({ isActive }) => ({
+                    color: isActive ? 'rgba(0,0,0,1)' : 'rgba(15,15,16,0.5)',
+                    textDecoration: 'none',
+                  })}
+                >
+                  {({ isActive }) => (
+                    <Group gap={8} wrap="nowrap" align="center">
+                      Обо мне
+                      {isActive && (
+                        <Indicator position="middle-center" size={6} />
+                      )}
+                    </Group>
+                  )}
+                </NavLink>
               </Group>
             </Group>
           </Grid.Col>

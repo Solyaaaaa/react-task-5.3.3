@@ -1,6 +1,5 @@
 
 import {
-  AppShell,
   Container,
   Divider,
   Group,
@@ -15,7 +14,6 @@ import {
   setJob,
   setSkills,
 } from '../store/vacanciesSlice';
-import { HeaderVacancy } from '../components/HeaderVacancy/HeaderVacancy';
 import { KeySkills } from '../components/KeySkills/KeySkills';
 import { SearchBar } from '../components/SearchBar/SearchBar';
 import { PaginationVacancies } from '../components/PaginationVacancies/PaginationVacancies';
@@ -72,9 +70,7 @@ import { Outlet, useSearchParams, useLocation } from 'react-router-dom';
   }, [dispatch, searchJob, city, keySkills, currentPage]);
 
   return (
-    <AppShell header={{ height: 60 }}>
-      <HeaderVacancy />
-      <AppShell.Main bg={'#f6f6f7'} pt={60}>
+<>
         <SearchBar />
         <Divider my="xl" m={24} />
         <Container size={1000}>
@@ -98,8 +94,7 @@ import { Outlet, useSearchParams, useLocation } from 'react-router-dom';
             </Stack>
           </Group>
         </Container>
-      </AppShell.Main>
-    </AppShell>
+    </>
   );
 };
 
